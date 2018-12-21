@@ -1,0 +1,8 @@
+COMPONENT koop
+FROM node:10
+COPY package.json package.json
+RUN npm install
+COPY ./ ./
+SERVICE npm start
+ROUTE -m GET /craigslist/seattle/apartments/FeatureServer/0/query
+ROUTE -m GET *
